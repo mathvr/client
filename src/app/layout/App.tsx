@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
-import { isTypeNode } from 'typescript';
+import { useEffect, useState } from 'react';
 import { Ingredient } from '../models/Ingredient';
-import GroceryList from '../../features/groceryList/GroceryList';
-import { Typography } from '@mui/material';
+import {CssBaseline} from '@mui/material';
+import Header from "./Header";
+import { Route, Routes } from 'react-router-dom';
+import HomePage from '../../features/home/HomePage';
+import IngredientPage from '../../features/ingredient/IngredientPage';
+import AboutPage from '../../features/about/AboutPage';
+import SearchRecipePage from '../../features/searchrecipe/SearchRecipePage';
+import AddRecipePage from "../../features/addrecipe/AddRecipePage";
 
 function App() {
 
-  const [ingredients, setIngredients] = useState<Ingredient[]>([]);
+  const [ingredients, setIngredients] = useState<Ingredient[]>([ ]);
 
   useEffect(()=> {
     fetch('https://localhost:5001/ingredient/ReturnAllIngredients')
@@ -17,10 +21,18 @@ function App() {
 
   return (
     <>
-      <Typography variant='h2'>RecipeApp</Typography>
-      <GroceryList ingredients = {ingredients}/>
+      <CssBaseline/>
+      <Header/>
+      <Routes>
+        <Route path='/' element={<HomePage/>} />
+        <Route path='/ingredient' element={<IngredientPage/>} />
+        <Route path='/searchRecipe' element={<SearchRecipePage/>} />
+        <Route path='/addRecipe' element={<AddRecipePage/>} />
+        <Route path='/about' element={<AboutPage/>} />
+      </Routes>
     </>
-  );
+      
+  )
 }
 
 export default App;

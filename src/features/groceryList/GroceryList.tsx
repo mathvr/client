@@ -1,4 +1,4 @@
-import { Fab, Input, List, Stack, ToggleButton } from "@mui/material";
+import {Fab, Input, List, ListItem, Stack, ToggleButton} from "@mui/material";
 import { fontSize } from "@mui/system";
 import { Fragment } from "react";
 import { Category } from "../../app/models/Category";
@@ -12,17 +12,17 @@ interface Props{
 export default function GroceryList({ingredients}: Props){
     return(
         <>
-            <form>
+            <div>
                 <Input defaultValue="" className="input-ingredient"></Input>
                 <Fab size="small" color="primary" aria-label="add" className="ingredient-button"> + </Fab>
-            </form>
-            <Stack spacing={1}>
+            </div>
+            <ListItem className={"ingredients-container"}>
                 {ingredients.map((ingredient) => (
                     <>
                     <IngredientTag ingredient={ingredient}/>
                     </>
                 ))}
-            </Stack>
+            </ListItem>
         </>
     )
 }

@@ -1,9 +1,9 @@
 import {Typography} from "@mui/material";
 
-export default function AboutPage (){
+export default function SearchRecipePage (){
     return(
         <Typography variant='h2'>
-            About Page
+            Search Recipe
         </Typography>
     )
 }
