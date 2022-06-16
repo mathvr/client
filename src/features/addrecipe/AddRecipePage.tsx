@@ -22,26 +22,20 @@ export default function AddRecipePage() {
     const [recipe, setRecipe] = useState<Recipe>(initialRecipeValues);
     const [ingredients, setIngredients] = useState<Ingredient[]>([]);
 
-    const handlePostRecipe = () => {
+    const handlePostRecipe = async () => {
 
-      var dataObject = {
-          RecipeName : recipe.RecipeName,
-          Healthy: recipe.Healthy,
-          Spicy: recipe.Spicy,
-          IngredientsRecipe: ingredients  
-      }
-
-      axios.post('https://localhost:7153/api/Ingredients/CreateRecipe', dataObject, {headers: {'Content-Type': 'application/json'}})
+     await axios ({
+        method: 'post', 
+        url: "https://localhost:7153/api/Ingredients/CreateRecipe",
+        data: {
+            Name: recipe.RecipeName,
+            Healthy: recipe.Healthy,
+            Spicy: recipe.Spicy,
+            Ingredients: ingredients
+        },
+        headers: {'content-type': 'application/json'},
+     });
         
-      /*axios({
-            method:'post', 
-            url: 'https://localhost:5001/ingredient/CreateRecipe',
-            
-            data:{
-                createdRecipe: dataObject
-            }
-        })
-        */
     }
  
 

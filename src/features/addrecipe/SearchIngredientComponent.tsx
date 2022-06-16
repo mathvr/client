@@ -50,13 +50,13 @@ export default function SearchIngredientComponent ({setRecipeIngredients}: Props
                     </tr>
                 </thead>
                 <tbody>
-                    {queryIngredients.map((ingredient) => (
+                    {Array.isArray(queryIngredients) ? queryIngredients.map((ingredient) => (
                         <tr key={ingredient.ingredientID}>
                             <td>{ingredient.name}</td>
-                            <td align="center">{ingredient.categoryID}</td>
+                            <td align="center">{ingredient.category?.categoryID}</td>
                             <td align="center" ><Button variant="success" size="sm" onClick={button => {addIngredientToRecipe(ingredient)}}><i className="bi bi-plus-square"></i></Button></td>
                         </tr>
-                    ))}
+                    )): null}
                 </tbody>
             </Table>
         </div>
