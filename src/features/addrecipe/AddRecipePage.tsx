@@ -26,7 +26,7 @@ export default function AddRecipePage() {
 
      await axios ({
         method: 'post', 
-        url: "https://localhost:7153/api/Ingredients/CreateRecipe",
+        url: "https://localhost:44350/api/Recipe/CreateRecipe",
         data: {
             Name: recipe.RecipeName,
             Healthy: recipe.Healthy,
@@ -40,7 +40,7 @@ export default function AddRecipePage() {
  
 
     const handleRemove = (id: number) => {
-        setIngredients(ingredients.filter(ingredient => ingredient.ingredientID !== id));
+        setIngredients(ingredients.filter(ingredient => ingredient.id !== id));
     }
 
     return (
@@ -109,16 +109,14 @@ export default function AddRecipePage() {
                         <thead>
                             <tr>
                                 <th scope="col" className="text-center">Ingredients</th>
-                                <th scope="col" className="text-center">Category</th>
-                                <th scope="col" className="text-center"></th>
+                                <th scope="col" className="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             {ingredients.map((ingredient) => ( 
-                                <tr key={ingredient.ingredientID}>
+                                <tr key={ingredient.id}>
                                     <td scope="col" className="text-justify">{ingredient.name}</td>
-                                    <td scope="col" className="text-center">{ingredient.categoryID}</td>
-                                    <td scope="col" className="text-center" ><Button onClick={button => {handleRemove(ingredient.ingredientID)}} variant="danger" size="sm"><i className="bi bi-x-square"></i></Button></td>
+                                    <td scope="col" className="text-center" ><Button onClick={button => {handleRemove(ingredient.id)}} variant="danger" size="sm"><i className="bi bi-x-square"></i></Button></td>
                                 </tr>
                             ))}
                         </tbody>

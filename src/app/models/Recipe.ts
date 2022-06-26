@@ -6,5 +6,5 @@ export interface Recipe{
         RecipeName: string,
         Healthy: string, 
         Spicy: string, 
-        IngredientsRecipe: Ingredient[]
+        IngredientsRecipe: number[]
 }

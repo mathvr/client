@@ -17,7 +17,7 @@ export default function SearchIngredientComponent ({setRecipeIngredients}: Props
     const [queryIngredients, setQueryIngredients] = useState<Ingredient[]>([]);
 
     useEffect(() => {
-        fetch('https://localhost:7153/api/Ingredients/SearchByName?'+ new URLSearchParams({name:input, name2:input2}))
+        fetch('https://localhost:44350/api/Ingredients/SearchByName?'+ new URLSearchParams({name:input, name2:input2}))
         .then(response => response.json())
         .then(data => setQueryIngredients(data))
     }, [input, input2])
@@ -45,15 +45,13 @@ export default function SearchIngredientComponent ({setRecipeIngredients}: Props
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th className="text-center">Category</th>
                         <th className="text-center">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     {Array.isArray(queryIngredients) ? queryIngredients.map((ingredient) => (
-                        <tr key={ingredient.ingredientID}>
+                        <tr key={ingredient.id}>
                             <td>{ingredient.name}</td>
-                            <td align="center">{ingredient.category?.categoryID}</td>
                             <td align="center" ><Button variant="success" size="sm" onClick={button => {addIngredientToRecipe(ingredient)}}><i className="bi bi-plus-square"></i></Button></td>
                         </tr>
                     )): null}

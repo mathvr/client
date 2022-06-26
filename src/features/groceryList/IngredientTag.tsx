@@ -11,7 +11,7 @@ interface Props{
 export default function IngredientTag({ingredient}: Props){
     return(
         <>
-            <ListItemText key={ingredient.ingredientID}>{ingredient.name}</ListItemText>
+            <ListItemText key={ingredient.id}>{ingredient.name}</ListItemText>
         </>
     )
 }

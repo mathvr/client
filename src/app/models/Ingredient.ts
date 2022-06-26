@@ -1,8 +1,6 @@
 import { Category } from "./Category";
 
 export interface Ingredient{
-        ingredientID: number;
-        categoryID: number;
+        id: number;
         name: string;
-        category?: Category;
 }
