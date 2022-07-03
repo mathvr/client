@@ -10,7 +10,7 @@ export default function IngredientPage (){
 
     const [categories, setCategories] = useState<Category[]>()
     const [ingredientName, setIngredientName] = useState<string>("");
-    const [categoryId, setCategoryId] = useState<number>();
+    const [categoryId, setCategoryId] = useState<number>(500);
 
     useEffect(() => {
         fetch('https://localhost:44350/api/Category/GetAllCategories')
@@ -32,6 +32,8 @@ export default function IngredientPage (){
         })
     }
 
+    const categoryDisp = () => {return categories?.filter(cat => cat.id == categoryId)}
+
     return(
         <Container className="p-5">
             <Row>
@@ -40,7 +42,11 @@ export default function IngredientPage (){
                     <div className="border p-3">
                         <Form.Group className="mb-3" controlId="ingredientName">
                             <Form.Label>Ingredient Name</Form.Label>
-                            <Form.Control type="text" value = {ingredientName} onInput = {e => {setIngredientName((e.target as HTMLInputElement).value)}}  placeholder="Enter the Name of the Ingredient"></Form.Control>
+                            <Form.Control type="text" value = {ingredientName} onInput = {e => {setIngredientName((e.target as HTMLInputElement).value)}}  placeholder="Enter the name of the Ingredient"></Form.Control>
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="ingredientCategory">
+                            <Form.Label>Ingredient Category</Form.Label>
+                            <h6>{categoryId}</h6>
                         </Form.Group>
                         <h4 className="text-secondary">Select Category</h4>
                         <Table className="table table-bordered table-sm" cellSpacing="0">

@@ -37,8 +37,6 @@ export default function AddRecipePage() {
      });
         
     }
- 
-
     const handleRemove = (id: number) => {
         setIngredients(ingredients.filter(ingredient => ingredient.id !== id));
     }
@@ -68,6 +66,7 @@ export default function AddRecipePage() {
                                 prevState.Healthy = e.target.value;
                                 return ({...prevState })
                             })}>
+                                <option></option>
                                 <option value="Yes">Healthy</option>
                                 <option value="Moderatly">Moderatly</option>
                                 <option value="No">Not Healthy</option>
@@ -79,6 +78,7 @@ export default function AddRecipePage() {
                                 prevState.Spicy = e.target.value;
                                 return ({...prevState })
                             })}>
+                                <option></option>
                                 <option value="Yes">Spicy</option>
                                 <option value="Moderatly">Moderatly</option>
                                 <option value="No">Not Spicy</option>
