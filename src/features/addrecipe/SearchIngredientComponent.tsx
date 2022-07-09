@@ -31,8 +31,8 @@ export default function SearchIngredientComponent ({setRecipeIngredients}: Props
             <h2 className="text-secondary">Add an ingredient</h2>
             <Box display="flex">
                 <Box display="flex" alignItems="center">
-                    <Form.Label id="inputIngredient" className="text-primary">First Criteria</Form.Label>
-                    <Form.Control id="inputIngredient" type="text" className="m-3" value={input} onInput={e => {setInput((e.target as HTMLInputElement).value)}}/>
+                    <Form.Label id="inputIngredient1" className="text-primary">First Criteria</Form.Label>
+                    <Form.Control id="inputIngredient1" type="text" className="m-3 input-primary" value={input} onInput={e => {setInput((e.target as HTMLInputElement).value)}}/>
                 </Box>
                 <Box display="flex" alignItems="center">
                     <Form.Label id="inputIngredient2" className="text-primary">Second Criteria</Form.Label>

@@ -2,9 +2,9 @@ import { List } from '@mui/material';
 import { Ingredient } from "./Ingredient";
 
 export interface Recipe{
-        RecipeId: number,
-        RecipeName: string,
-        Healthy: string, 
-        Spicy: string, 
-        IngredientsRecipe: number[]
+        id: number,
+        name: string,
+        healthy: string,
+        spicy: string,
+        ingredientsRecipe: number[]
 }

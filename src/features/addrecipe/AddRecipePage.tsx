@@ -10,11 +10,11 @@ import axios from "axios";
 
 
 const initialRecipeValues: Recipe= {
-    RecipeId: 0,
-    RecipeName: "",
-    Healthy: "",
-    Spicy: "",
-    IngredientsRecipe: [],
+    id: 0,
+    name: "",
+    healthy: "",
+    spicy: "",
+    ingredientsRecipe: [],
 }
 
 export default function AddRecipePage() {
@@ -28,9 +28,9 @@ export default function AddRecipePage() {
         method: 'post', 
         url: "https://localhost:44350/api/Recipe/CreateRecipe",
         data: {
-            Name: recipe.RecipeName,
-            Healthy: recipe.Healthy,
-            Spicy: recipe.Spicy,
+            Name: recipe.name,
+            Healthy: recipe.healthy,
+            Spicy: recipe.spicy,
             Ingredients: ingredients
         },
         headers: {'content-type': 'application/json'},
@@ -53,8 +53,8 @@ export default function AddRecipePage() {
                         </div>
                         <Form.Group className="mb-3" controlId="InputName">
                             <Form.Label>Name</Form.Label>
-                            <Form.Control type="text" placeholder="Ex: Hot Dogs" id="InputName" value={recipe.RecipeName} onChange={(e) => setRecipe((prevState) => {
-                                prevState.RecipeName = e.target.value; 
+                            <Form.Control type="text" placeholder="Ex: Hot Dogs" id="InputName" value={recipe.name} onChange={(e) => setRecipe((prevState) => {
+                                prevState.name = e.target.value;
                                 return ({...prevState })
                             }
                             )}> 
@@ -62,8 +62,8 @@ export default function AddRecipePage() {
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="isHealthy">
                             <Form.Label>Healthy</Form.Label>
-                            <Form.Select id="isHealthy" value={recipe.Healthy} onChange = {(e) => setRecipe((prevState) => {
-                                prevState.Healthy = e.target.value;
+                            <Form.Select id="isHealthy" value={recipe.healthy} onChange = {(e) => setRecipe((prevState) => {
+                                prevState.healthy = e.target.value;
                                 return ({...prevState })
                             })}>
                                 <option></option>
@@ -74,8 +74,8 @@ export default function AddRecipePage() {
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="isSpicy">
                             <Form.Label>Spicy</Form.Label>
-                            <Form.Select id="isSpicy" value={recipe.Spicy} onChange = {(e) => setRecipe((prevState) => {
-                                prevState.Spicy = e.target.value;
+                            <Form.Select id="isSpicy" value={recipe.spicy} onChange = {(e) => setRecipe((prevState) => {
+                                prevState.spicy = e.target.value;
                                 return ({...prevState })
                             })}>
                                 <option></option>
@@ -101,9 +101,9 @@ export default function AddRecipePage() {
                         </thead>
                         <tbody>
                             <tr>
-                                <td className="text-uppercase text-center" width="50%">{recipe.RecipeName}</td>
-                                <td className="text-uppercase text-center" width="30%">{recipe.Healthy}</td>
-                                <td className="text-uppercase text-center" width="20%">{recipe.Spicy}</td>
+                                <td className="text-uppercase text-center" width="50%">{recipe.name}</td>
+                                <td className="text-uppercase text-center" width="30%">{recipe.healthy}</td>
+                                <td className="text-uppercase text-center" width="20%">{recipe.spicy}</td>
                             </tr>
                         </tbody>
                         <thead>
